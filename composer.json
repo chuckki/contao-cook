@@ -5,8 +5,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Chuckki",
-            "homepage": "https://github.com/chuckki/contao-cook"
+            "name": "chuckki",
+            "homepage": "https://github.com/chuckki"
         }
     ],
     "require": {
