@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var cookiebar = document.querySelector('[data-cookiebar]');
+    var cook = document.querySelector('[data-cook]');
 
-    // Return if the cookiebar element does not exist
-    if (!cookiebar) {
+    // Return if the cook element does not exist
+    if (!cook) {
         return;
     }
 
-    var cookieName = cookiebar.dataset.cookiebar;
+    var cookieName = cook.dataset.cook;
 
     if (window.localStorage.getItem(cookieName) && window.localStorage.getItem(cookieName) > Math.round(Date.now() / 1000)) {
         return;
@@ -21,16 +21,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    var bodyCssClass = 'cookiebar-active';
-    var cookiebarCssClass = 'cookiebar--active';
+    var bodyCssClass = 'cook-active';
+    var cookCssClass = 'cook--active';
 
     // Add the active CSS class
-    cookiebar.classList.add(cookiebarCssClass);
+    cook.classList.add(cookCssClass);
 
     // Add the body CSS class
     document.body.classList.add(bodyCssClass);
 
-    var acceptButton = cookiebar.querySelector('[data-cookiebar-accept]');
+    var acceptButton = cook.querySelector('[data-cook-accept]');
 
     // Power up the accept button if exists
     if (acceptButton) {
@@ -38,25 +38,25 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
 
             var date = new Date();
-            var ttl = cookiebar.dataset.cookiebarTtl ? parseInt(cookiebar.dataset.cookiebarTtl, 10) : 365;
+            var ttl = cook.dataset.cookTtl ? parseInt(cook.dataset.cookTtl, 10) : 365;
 
             // Store in local storage
             date.setDate(date.getDate() + ttl);
             window.localStorage.setItem(cookieName, Math.round(date.getTime() / 1000));
 
             // Remove the active CSS class
-            cookiebar.classList.remove(cookiebarCssClass);
+            cook.classList.remove(cookCssClass);
 
             // Remove the body CSS class
             document.body.classList.remove(bodyCssClass);
         });
     }
 
-    var analyticsBox = cookiebar.querySelector('[data-cookiebar-analytics]');
+    var analyticsBox = cook.querySelector('[data-cook-analytics]');
 
     // Power up the analytics box if exists
     if (analyticsBox) {
-        var analyticsKey = 'COOKIEBAR_ANALYTICS';
+        var analyticsKey = 'cook_ANALYTICS';
 
         // Check the box if the box was checked
         if (localStorage.getItem(analyticsKey)) {

@@ -1,0 +1,58 @@
+#cook * {
+    box-sizing: border-box
+}
+
+#cook {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100vw;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(39, 57, 117, 0.9);
+    color: #fff;
+    font-size: 1.2em;
+    text-align: left;
+}
+
+
+#cook-wrapper {
+    display: block;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.cook_btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.cook_btns button {
+    flex-grow: 1;
+    flex-basis: 30%;
+    margin: 15px;
+    white-space: nowrap;
+    display: inline-block;
+    color: #ffffff;
+    background: #f47d00;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    padding: 12.5px 30px;
+    border: 2px solid transparent;
+    border-radius: 0.4em;
+    transition: all .2s;
+}
+.cook_btns button:hover {
+    text-decoration: underline;
+}
+
+.cook_btns button.btn_no_ack {
+    background: #12162f;
+    color: #ffffff;
+}

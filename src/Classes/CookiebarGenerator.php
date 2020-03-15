@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Cookiebar extension for Contao Open Source CMS
+ * cook extension for Contao Open Source CMS
  *
  * Copyright (C) 2011-2018 Codefog
  *
@@ -25,7 +25,7 @@ class CookiebarGenerator extends Frontend
      *
      * @return FrontendTemplate
      */
-    public function createTemplate(array $data, $name = 'cookiebar')
+    public function createTemplate(array $data, $name = 'cook')
     {
         $template = new FrontendTemplate($name);
         $this->setBasicData($template, $data);
@@ -33,13 +33,13 @@ class CookiebarGenerator extends Frontend
         $this->setAnalyticsCheckboxData($template, $data);
 
         // Cookie name
-        $template->cookie = sprintf('COOKIEBAR_%s', $data['id']);
+        $template->cookie = sprintf('cook_%s', $data['id']);
 
         return $template;
     }
 
     /**
-     * Automatically set all variables with cookiebar_ prefix.
+     * Automatically set all variables with cook_ prefix.
      *
      * @param FrontendTemplate $template
      * @param array            $data
@@ -47,8 +47,8 @@ class CookiebarGenerator extends Frontend
     private function setBasicData(FrontendTemplate $template, array $data)
     {
         foreach ($data as $k => $v) {
-            if (0 === strpos($k, 'cookiebar_')) {
-                $template->{substr($k, 10)} = $v;
+            if (0 === strpos($k, 'cook_')) {
+                $template->{substr($k, 5)} = $v;
             }
         }
 
@@ -65,10 +65,10 @@ class CookiebarGenerator extends Frontend
     {
         $template->more = null;
 
-        if ($data['cookiebar_url']) {
+        if ($data['cook_url']) {
             $template->more = [
-                'label' => $data['cookiebar_link'] ?: $GLOBALS['TL_LANG']['MSC']['cookiebar.more'],
-                'url' => $data['cookiebar_url'],
+                'label' => $data['cook_link'] ?: $GLOBALS['TL_LANG']['MSC']['cook.more'],
+                'url' => $data['cook_url'],
             ];
         }
     }
@@ -83,9 +83,9 @@ class CookiebarGenerator extends Frontend
     {
         $template->analyticsCheckbox = null;
 
-        if ($data['cookiebar_analyticsCheckbox']) {
+        if ($data['cook_analyticsCheckbox']) {
             $template->analyticsCheckbox = [
-                'label' => $data['cookiebar_analyticsLabel'] ?: $GLOBALS['TL_LANG']['MSC']['cookiebar.analytics'],
+                'label' => $data['cook_analyticsLabel'] ?: $GLOBALS['TL_LANG']['MSC']['cook.analytics'],
             ];
         }
     }

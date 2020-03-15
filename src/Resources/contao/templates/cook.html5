@@ -1,0 +1,38 @@
+<?php
+if ($this->includeCss) {
+    $GLOBALS['TL_CSS'][] = 'bundles/chuckkicontaocook/css/cook.min.css|all'.($this->combineAssets ? '|static' : '');
+}
+if ($this->combineAssets) {
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/chuckkicontaocook/js/cook.js|static';
+}
+?>
+
+<!-- indexer::stop -->
+<div id="cook" role="complementary" aria-describedby="cook-text"
+     data-cook="<?= $this->cookie ?>"<?php if ($this->ttl): ?> data-cook-ttl="<?= $this->ttl ?>"<?php endif; ?>>
+  <div id="cook-wrapper">
+    <div id="cook-text" class="cook__text" aria-live="assertive" role="alert">
+      <span class="cook__message"><?= $this->message ?></span>
+
+        <?php if ($this->more): ?>
+          <a href="<?= $this->more['url'] ?>" class="cook__link"
+             title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
+        <?php endif ?>
+    </div>
+
+
+    <div class="cook_btns">
+      <?php if ($this->analyticsCheckbox): ?>
+      <button type="button" class="cook__button btn_no_ack" data-cook-no-accept data-cook-analytics><?= $this->analyticsCheckbox['label'] ?></button>
+      <?php endif; ?>
+      <button type="button" class="cook__button " data-cook-accept><?= $this->button ?></button>
+    </div>
+
+  </div>
+</div>
+
+
+<?php if (!$this->combineAssets): ?>
+  <script src="bundles/chuckkicontaocook/js/cook.js" defer></script>
+<?php endif; ?>
+<!-- indexer::continue -->

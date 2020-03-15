@@ -21,8 +21,6 @@ class TemplateListener
         if (null !== ($rootPage = PageModel::findByPk($GLOBALS['objPage']->rootId)) && $rootPage->cook_enable) {
             $generator = new CookiebarGenerator();
             $cookiebar = $generator->createTemplate($rootPage->row())->parse();
-            dump($cookiebar);
-            //die("walter");
             if ('before_wrapper' === $rootPage->cook_placement) {
                 $buffer = str_replace('<div id="wrapper">', $cookiebar.'<div id="wrapper">', $buffer);
             } else {
