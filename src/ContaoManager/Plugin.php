@@ -10,7 +10,7 @@
 
 namespace Chuckki\ContaoCookBundle\ContaoManager;
 
-use Chuckki\ContaoCookBundle\ContaoCookBundle;
+use Chuckki\ContaoCookBundle\ChuckkiContaoCookBundle;
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
@@ -24,7 +24,7 @@ class Plugin implements BundlePluginInterface
     public function getBundles(ParserInterface $parser)
     {
         return [
-            BundleConfig::create(ContaoCookBundle::class)
+            BundleConfig::create(ChuckkiContaoCookBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
