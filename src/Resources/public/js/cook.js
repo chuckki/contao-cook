@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
     }
+    console.log(cookieName);
 
     var bodyCssClass = 'cook-active';
     var cookCssClass = 'cook--active';
@@ -31,6 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.add(bodyCssClass);
 
     var acceptButton = cook.querySelector('[data-cook-accept]');
+    var analyticsBox = cook.querySelector('[data-cook-no-accept]');
+
+    var analyticsKey = 'cook_ANALYTICS';
 
     // Power up the accept button if exists
     if (acceptButton) {
@@ -44,33 +48,36 @@ document.addEventListener('DOMContentLoaded', function () {
             date.setDate(date.getDate() + ttl);
             window.localStorage.setItem(cookieName, Math.round(date.getTime() / 1000));
 
+            localStorage.removeItem(analyticsKey);
+
             // Remove the active CSS class
             cook.classList.remove(cookCssClass);
-
-            // Remove the body CSS class
             document.body.classList.remove(bodyCssClass);
         });
     }
 
-    var analyticsBox = cook.querySelector('[data-cook-analytics]');
 
     // Power up the analytics box if exists
     if (analyticsBox) {
-        var analyticsKey = 'cook_ANALYTICS';
-
-        // Check the box if the box was checked
-        if (localStorage.getItem(analyticsKey)) {
-            analyticsBox.checked = true;
-        }
-
-        analyticsBox.addEventListener('change', function (e) {
+        analyticsBox.addEventListener('click', function (e) {
             e.preventDefault();
 
-            if (this.checked) {
-                localStorage.setItem(analyticsKey, 1);
-            } else {
-                localStorage.removeItem(analyticsKey);
-            }
+            localStorage.setItem(analyticsKey, 1);
+
+
+            var date = new Date();
+            var ttl = cook.dataset.cookTtl ? parseInt(cook.dataset.cookTtl, 10) : 365;
+
+            // Store in local storage
+            date.setDate(date.getDate() + ttl);
+            window.localStorage.setItem(cookieName, Math.round(date.getTime() / 1000));
+
+            // Remove the active CSS class
+            cook.classList.remove(cookCssClass);
+            document.body.classList.remove(bodyCssClass);
+
         });
+
     }
+
 });

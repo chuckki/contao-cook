@@ -8,7 +8,7 @@ if ($this->combineAssets) {
 ?>
 
 <!-- indexer::stop -->
-<div id="cook" role="complementary" aria-describedby="cook-text"
+<div id="cook" role="complementary" style="display: none;" aria-describedby="cook-text"
      data-cook="<?= $this->cookie ?>"<?php if ($this->ttl): ?> data-cook-ttl="<?= $this->ttl ?>"<?php endif; ?>>
   <div id="cook-wrapper">
     <div id="cook-text" class="cook__text" aria-live="assertive" role="alert">
@@ -23,9 +23,10 @@ if ($this->combineAssets) {
 
     <div class="cook_btns">
       <?php if ($this->analyticsCheckbox): ?>
-      <button type="button" class="cook__button btn_no_ack" data-cook-no-accept data-cook-analytics><?= $this->analyticsCheckbox['label'] ?></button>
+      <button class="cook__button btn_no_ack" data-cook-no-accept>_<?= $this->analyticsCheckbox['label'] ?></button>
       <?php endif; ?>
-      <button type="button" class="cook__button " data-cook-accept><?= $this->button ?></button>
+
+      <button class="cook__button " data-cook-accept><?= $this->button ?>_</button>
     </div>
 
   </div>
