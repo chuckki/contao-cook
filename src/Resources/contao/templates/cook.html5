@@ -23,10 +23,9 @@ if ($this->combineAssets) {
 
     <div class="cook_btns">
       <?php if ($this->analyticsCheckbox): ?>
-      <button class="cook__button btn_no_ack" data-cook-no-accept>_<?= $this->analyticsCheckbox['label'] ?></button>
+      <button class="cook__button btn_no_ack" data-cook-no-accept><?= $this->analyticsCheckbox['label'] ?></button>
       <?php endif; ?>
-
-      <button class="cook__button " data-cook-accept><?= $this->button ?>_</button>
+      <button class="cook__button " data-cook-accept><?= $this->button ?></button>
     </div>
 
   </div>
