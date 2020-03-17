@@ -48,6 +48,7 @@
     border-radius: 0.4em;
     transition: all .2s;
 }
+
 .cook_btns button:hover {
     text-decoration: underline;
 }
@@ -57,11 +58,13 @@
     color: #ffffff;
 }
 
-
-
 .cook--active {
-	display: flex!important;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.cook__link {
+    color: white;
 }

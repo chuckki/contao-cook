@@ -38,7 +38,7 @@ $GLOBALS['TL_DCA']['tl_page']['fields']['cook_message'] = [
     'label' => &$GLOBALS['TL_LANG']['tl_page']['cook_message'],
     'exclude' => true,
     'inputType' => 'text',
-    'eval' => ['mandatory' => true, 'tl_class' => 'long'],
+    'eval' => ['mandatory' => true, 'tl_class' => 'long', 'allowHtml' => true],
     'sql' => 'text NULL',
 ];
 
