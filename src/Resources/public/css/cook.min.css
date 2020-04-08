@@ -9,7 +9,8 @@
     z-index: 1000;
     width: 100vw;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    background: rgba(39, 57, 117, 0.9);
+    background: rgba(42, 171, 226, 0.9);
+    background: rgba(13, 114, 173, 0.9);
     color: #fff;
     font-size: 1.2em;
     text-align: left;
@@ -48,6 +49,7 @@
     border-radius: 0.4em;
     transition: all .2s;
 }
+
 .cook_btns button:hover {
     text-decoration: underline;
 }
@@ -57,11 +59,13 @@
     color: #ffffff;
 }
 
-
-
 .cook--active {
-	display: flex!important;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap
+}
+
+.cook__link {
+    color: white;
 }
