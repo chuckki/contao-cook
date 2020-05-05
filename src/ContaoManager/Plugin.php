@@ -1,13 +1,5 @@
 <?php
 
-/*
- * This file is part of [package name].
- *
- * (c) John Doe
- *
- * @license LGPL-3.0-or-later
- */
-
 namespace Chuckki\ContaoCookBundle\ContaoManager;
 
 use Chuckki\ContaoCookBundle\ChuckkiContaoCookBundle;
