@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
     }
-    console.log(cookieName);
 
     var bodyCssClass = 'cook-active';
     var cookCssClass = 'cook--active';
@@ -47,6 +46,10 @@ document.addEventListener('DOMContentLoaded', function () {
             // Store in local storage
             date.setDate(date.getDate() + ttl);
             window.localStorage.setItem(cookieName, Math.round(date.getTime() / 1000));
+
+            if (typeof cookieAllowed === "function") {
+                cookieAllowed();
+            }
 
             localStorage.removeItem(analyticsKey);
 
