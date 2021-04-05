@@ -16,7 +16,7 @@ if ($this->combineAssets) {
 
         <?php if ($this->more): ?>
           <a href="<?= $this->more['url'] ?>" class="cook__link"
-             title="<?= specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
+             title="<?= StringUtil::specialchars($this->more['label']) ?>"><?= $this->more['label'] ?></a>
         <?php endif ?>
     </div>
 
