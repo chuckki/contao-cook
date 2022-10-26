@@ -1,4 +1,7 @@
 <?php
+
+use Contao\StringUtil;
+
 if ($this->includeCss) {
     $GLOBALS['TL_CSS'][] = 'bundles/chuckkicontaocook/css/cook.min.css|all'.($this->combineAssets ? '|static' : '');
 }

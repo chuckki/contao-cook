@@ -7,15 +7,7 @@ use Contao\FrontendTemplate;
 
 class CookiebarGenerator extends Frontend
 {
-    /**
-     * Create the cookie bar template.
-     *
-     * @param array  $data
-     * @param string $name
-     *
-     * @return FrontendTemplate
-     */
-    public function createTemplate(array $data, $name = 'cook')
+    public function createTemplate(array $data, string $name = 'cook'): FrontendTemplate
     {
         $template = new FrontendTemplate($name);
         $this->setBasicData($template, $data);
@@ -28,16 +20,10 @@ class CookiebarGenerator extends Frontend
         return $template;
     }
 
-    /**
-     * Automatically set all variables with cook_ prefix.
-     *
-     * @param FrontendTemplate $template
-     * @param array            $data
-     */
-    private function setBasicData(FrontendTemplate $template, array $data)
+    private function setBasicData(FrontendTemplate $template, array $data): void
     {
         foreach ($data as $k => $v) {
-            if (0 === strpos($k, 'cook_')) {
+            if (str_starts_with($k, 'cook_')) {
                 $template->{substr($k, 5)} = $v;
             }
         }
@@ -45,13 +31,7 @@ class CookiebarGenerator extends Frontend
         $template->raw = $data;
     }
 
-    /**
-     * Set the "more" link data.
-     *
-     * @param FrontendTemplate $template
-     * @param array            $data
-     */
-    private function setMoreLinkData(FrontendTemplate $template, array $data)
+    private function setMoreLinkData(FrontendTemplate $template, array $data): void
     {
         $template->more = null;
 
@@ -63,13 +43,7 @@ class CookiebarGenerator extends Frontend
         }
     }
 
-    /**
-     * Set the "analytics" checkbox data.
-     *
-     * @param FrontendTemplate $template
-     * @param array            $data
-     */
-    private function setAnalyticsCheckboxData(FrontendTemplate $template, array $data)
+    private function setAnalyticsCheckboxData(FrontendTemplate $template, array $data): void
     {
         $template->analyticsCheckbox = null;
 
